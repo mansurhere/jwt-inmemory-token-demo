@@ -1,0 +1,27 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: jwt-security-demo
+  profiles:
+    active:
+      - default-security
+---
+#defualt pwd
+spring:
+  config:
+    activate:
+      on-profile: default-security
+...
+
+---
+#custom password
+spring:
+  config:
+    activate:
+      on-profile: custom-security
+  security:
+    user:
+      name: test
+      password: test@12345
+...
